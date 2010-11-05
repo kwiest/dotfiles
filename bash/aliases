@@ -1,0 +1,20 @@
+# Edit and reload aliases
+alias reload='source /home/bin/dotfiles/bash/aliases'
+alias ea='vi /home/bin/dotfiles/bash/aliases && reload' # Edits aliases, then reloads
+alias ee='vi /home/bin/dotfiles/bash/env' # Edit env config
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias la='ls -la'
+
+# Go to default Rails Apps directory
+# Only for use on mt(dv) Server
+alias cra='cd /var/www/rails_apps'
+
+# See what's running
+alias tu='top -o cpu' # By CPU usage
+alias tm='top -o vsize' # By Mem usage
+
+# Rails
+alias rc='rails c'

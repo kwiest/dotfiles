@@ -1,10 +1,6 @@
-# .bashrc
-
-# User specific aliases and functions
-
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+source /home/bin/dotfiles/bash/env
+source /home/bin/dotfiles/bash/config
+source /home/bin/dotfiles/bash/aliases
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
