@@ -9,6 +9,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias la='ls -la'
 alias cdd='cd -'
+alias pgrep='ps aux | grep'
 
 # Go to default Rails Apps directory
 # Only for use on mt(dv) Server
