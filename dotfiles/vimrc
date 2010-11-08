@@ -1,7 +1,8 @@
 set nocompatible                        " vi IMPROVED
 set encoding=utf-8
 
-silent! call pathogen#runttime_append_all_bundles()
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 set number                              " Display line numbers
 set ruler                               " Display the cursor position
@@ -26,4 +27,5 @@ set autoindent                          " Automatic indents
 set smartindent                         " Smart indents
 set expandtab                           " Convert tabs to spaces
 
-map <leader>nt :NERDTree                " NERDTree shortuct
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
