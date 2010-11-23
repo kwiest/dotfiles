@@ -1,3 +1,14 @@
 Kyle Wiest's dotfiles
 
-A real work in progress
+Step 1 - Clone dotfiles
+ - git clone http://github.com/kwiest/dotfiles.git
+ - mv dotfiles ~/bin
+
+Step 2 - Install vcprompt
+ - wget http://vc.gerg.ca/hg/vcprompt/archive/tip.tar.gz
+ - tar -xvf tip.tar.gz
+ - cd unziped directory
+ - make && make install
+ - copy vcprompt to $HOME
+ - add $HOME/bin to $PATH in bashrc
+

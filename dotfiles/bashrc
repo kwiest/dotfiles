@@ -8,7 +8,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Add /bin to PATH
-export PATH=$PATH:/bin
+export PATH=$PATH:~/bin
 
 # RVM Info
 [[ -s "/usr/local/lib/rvm" ]] && . "/usr/local/lib/rvm"
