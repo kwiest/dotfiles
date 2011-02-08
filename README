@@ -10,5 +10,6 @@ Step 2 - Install vcprompt
  - cd unziped directory
  - make && make install
  - copy vcprompt to $HOME
+ - make vcprompt executable (755) and move to ~/bin
  - add $HOME/bin to $PATH in bashrc
 

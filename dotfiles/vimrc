@@ -25,7 +25,6 @@ set wrap                                " Allow line-wrapping
 
 set autoindent                          " Automatic indents
 set smartindent                         " Smart indents
-set expandtab                           " Convert tabs to spaces
 
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
