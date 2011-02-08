@@ -1,0 +1,3 @@
+# LS Colors for bash ls highlighting
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
