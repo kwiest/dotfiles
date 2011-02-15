@@ -1,0 +1,30 @@
+[submodule "mustache.vim"]
+	path = mustache.vim
+	url = /home/kyle/bin/dotfiles/vim/bundle/mustache.vim/.git
+[submodule "nerdcommenter"]
+	path = nerdcommenter
+	url = /home/kyle/bin/dotfiles/vim/bundle/nerdcommenter/.git
+[submodule "snipmate.vim"]
+	path = snipmate.vim
+	url = /home/kyle/bin/dotfiles/vim/bundle/snipmate.vim/.git
+[submodule "vim-align"]
+	path = vim-align
+	url = /home/kyle/bin/dotfiles/vim/bundle/vim-align/.git
+[submodule "vim-haml"]
+	path = vim-haml
+	url = /home/kyle/bin/dotfiles/vim/bundle/vim-haml/.git
+[submodule "vim-makegreen"]
+	path = vim-makegreen
+	url = /home/kyle/bin/dotfiles/vim/bundle/vim-makegreen/.git
+[submodule "vim-ragtag"]
+	path = vim-ragtag
+	url = /home/kyle/bin/dotfiles/vim/bundle/vim-ragtag/.git
+[submodule "vim-rails"]
+	path = vim-rails
+	url = /home/kyle/bin/dotfiles/vim/bundle/vim-rails/.git
+[submodule "vim-supertab"]
+	path = vim-supertab
+	url = /home/kyle/bin/dotfiles/vim/bundle/vim-supertab/.git
+[submodule "vim-surround"]
+	path = vim-surround
+	url = /home/kyle/bin/dotfiles/vim/bundle/vim-surround/.git

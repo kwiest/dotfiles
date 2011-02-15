@@ -12,3 +12,23 @@ Step 2 - Install vcprompt
  - copy vcprompt to $HOME
  - make vcprompt executable (755) and move to ~/bin
 
+VIM Plugins
+- Ack: Grep replacement for directory searching
+- Endwise: Automatically (and smartly) and "end"
+- Fugitive: Git wrapper for VIM
+- Mustache.Vim: Syntax for Mustache.
+- NERDCommenter: Easy comment manipulation.
+- NERDTree: Cool project drawer
+- Snipmate: TextMate like snippets
+- Vim-Align: Allows to align text by equals sign etc.
+- Vim-Git: Git runtime for VIM
+- Vim-Haml: Haml syntax highlighting.
+- Vim-Makegreen: Red or green bar for failing/passing tests.
+- Vim-Markdown: Markdown syntax highlighting.
+- Vim-Peepopen: For Peepopen app (Not used since I'm not on Snow Leopard)
+- Vim-Rails: Self explanatory
+- Vim-Rooter: Change working directory to project root using <Leader>cd
+- Vim-Supertab: Tab completion for current context
+- Vim-Surround: Mappings to surround text in quotes, tags, etc.
+- Vim-Taglist: Adds a list of tags for the current filetype. Usage, :TlistToggle
+- Vim-Unimpaired: Bracket maps for navigation
