@@ -12,6 +12,10 @@ set showmode                            " Always show the current mode
 
 set backspace=indent,eol,start          " Smart backspacing
 
+set expandtab				" Convert tabs to spaces
+set tabstop=4				" Tabs should be 4 spaces
+set shiftwidth=4			" Indent with 4 spaces too
+
 syntax enable                           " Syntax highlighting
 filetype plugin indent on               " Filetype detection, and indentation
 
