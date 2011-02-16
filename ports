@@ -1,0 +1,13 @@
+#!/bin/sh
+# Usage: ports [<options>]
+# Shows processes listening on ports
+# Any options are passed to lsof
+
+set -e
+
+test "$1" = "--help" && {
+    grep ^#/ <"$0"| cut -c4-
+    exit 2
+}
+
+exec /usr/sbin/lsof -iTCP -sTCP:LISTEN -P "$@"

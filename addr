@@ -1,0 +1,5 @@
+#!/bin/sh
+# Usage: addr
+# Displays all IPv4 addresses for machine
+
+/sbin/ifconfig | grep inet | grep Bcast | awk '{ print $2 }'
