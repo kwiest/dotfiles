@@ -28,3 +28,6 @@
 [submodule "vim-surround"]
 	path = vim-surround
 	url = /home/kyle/bin/dotfiles/vim/bundle/vim-surround/.git
+[submodule "dotfiles/vim/bundle/vim-cucumber"]
+	path = dotfiles/vim/bundle/vim-cucumber
+	url = https://github.com/tpope/vim-cucumber.git
