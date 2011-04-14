@@ -31,6 +31,9 @@ set showcmd                             " Display incomplete commands
 set showmode                            " Always show the current mode
 set backspace=indent,eol,start          " Smart backspacing
 
+set background=dark
+colorscheme solarized                   " Color for gVim
+
 "-------------------------------------------------------------------------------
 " Text Formatting 
 "-------------------------------------------------------------------------------
@@ -54,9 +57,7 @@ set visualbell                          " Don't beep at me!
 
 set wrap                                " Allow line-wrapping
 
-
 autocmd VimEnter * NERDTree             " Autostart NERDTree
 autocmd VimEnter * wincmd p
 
-set background=dark
-colorscheme solarized                   " Color for gVim
+let mapleader=','                       " Map the leader key to ','
