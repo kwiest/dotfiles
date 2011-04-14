@@ -7,6 +7,9 @@ source ~/bin/dotfiles/bash/env
 source ~/bin/dotfiles/bash/config
 source ~/bin/dotfiles/bash/aliases
 
+# Add ~/bin to $PATH
+PATH=$PATH:$HOME/bin
+
 # RVM Info for system wide rvm install
 # If installed per user, load scripts in localrc with following line:
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

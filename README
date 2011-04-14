@@ -32,3 +32,4 @@ VIM Plugins
 - Vim-Surround: Mappings to surround text in quotes, tags, etc.
 - Vim-Taglist: Adds a list of tags for the current filetype. Usage, :TlistToggle
 - Vim-Unimpaired: Bracket maps for navigation
+- Vim-Coffeescript: Coffeescript in Vim

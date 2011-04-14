@@ -1,7 +1,7 @@
 # Edit and reload aliases
 alias reload='source /home/bin/dotfiles/bash/aliases'
 alias ea='vi /home/bin/dotfiles/bash/aliases && reload' # Edits aliases, then reloads
-alias ee='vi /home/bin/dotfiles/bash/env' # Edit env config
+alias ee='vi /home/bin/dotfiles/bash/env && reload' # Edit env config, then reloads
 
 # Basics and movement
 alias rm='rm -i'
