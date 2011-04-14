@@ -57,3 +57,6 @@ set wrap                                " Allow line-wrapping
 
 autocmd VimEnter * NERDTree             " Autostart NERDTree
 autocmd VimEnter * wincmd p
+
+set background=dark
+colorscheme solarized                   " Color for gVim
