@@ -23,6 +23,7 @@ syntax enable                           " Syntax highlighting
 filetype plugin indent on               " Filetype detection, and indentation
 
 set number                              " Display line numbers
+set numberwidth=5                       " In case the file is REALLY long
 set ruler                               " Display the cursor position
 set ch=2                                " Command line height
 set wildmenu                            " Command line completion
@@ -40,9 +41,9 @@ colorscheme solarized                   " Color for gVim
 
 set autoindent                          " Automatic indents
 set smartindent                         " Smart indents
-set expandtab	            			" Convert tabs to spaces
-set tabstop=4			            	" Tabs should be 4 spaces
-set shiftwidth=4		            	" Indent with 4 spaces too
+set expandtab                           " Convert tabs to spaces
+set tabstop=4                           " Tabs should be 4 spaces
+set shiftwidth=4                        " Indent with 4 spaces too
 set nowrap                              " Do not allow line wrap
 
 "-------------------------------------------------------------------------------
@@ -57,6 +58,8 @@ set visualbell                          " Don't beep at me!
 
 set wrap                                " Allow line-wrapping
 
+set cursorline                          " Highlight the current line
+hi CursorLine cterm=NONE ctermbg=black  
 autocmd VimEnter * NERDTree             " Autostart NERDTree
 autocmd VimEnter * wincmd p
 
