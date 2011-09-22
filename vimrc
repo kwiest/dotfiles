@@ -54,6 +54,7 @@ set showmatch                           " Show matching bracket/brace
 set ignorecase                          " Ignore case while searching
 set incsearch                           " Highlight search matches as you type
 set hlsearch                            " Highlight search matches
+noremap <esc> :noh<return><esc>         " Clear search highlighting by hitting esc
 set visualbell                          " Don't beep at me!
 
 set wrap                                " Allow line-wrapping
