@@ -3,9 +3,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-source ~/bin/dotfiles/bash/env
-source ~/bin/dotfiles/bash/config
-source ~/bin/dotfiles/bash/aliases
+source ~/dotfiles/bash/env
+source ~/dotfiles/bash/config
+source ~/dotfiles/bash/aliases
 
 # Add ~/bin to $PATH
 export PATH=$PATH:$HOME/bin
