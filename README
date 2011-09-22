@@ -2,35 +2,37 @@ Kyle Wiest's dotfiles
 
 Step 1 - Clone dotfiles
  - git clone http://github.com/kwiest/dotfiles.git
- - mv dotfiles ~/bin
 
-Step 2 - Install vcprompt
+Step 2 - Make backups of any local config files
+
+Step 3 - Create symbolic links
+ - ln -s ~/dotfiles/bashrc .bashrc
+ - ln -s ~/dotfiles/vim .vim
+ - ln -s ~/dotfiles/vimrc .vimrc
+ - ln -s ~/dotfiles/gvimrc .gvimrc
+ - ln -s ~/dotfiles/gitconfig .gitconfig
+ - ln -s ~/dotfiles/bin/ bin/
+
+Step 4 - Install vcprompt
  - wget http://vc.gerg.ca/hg/vcprompt/archive/tip.tar.gz
  - tar -xvf tip.tar.gz
  - cd unziped directory
  - make && make install
- - copy vcprompt to $HOME
- - make vcprompt executable (755) and move to ~/bin
+ - copy vcprompt to ~/bin 
+ - chmod 755 ~/bin/vcprompt
 
 VIM Plugins
-- Ack: Grep replacement for directory searching
+- Coffeescript: Syntax for Coffee-Script
 - Endwise: Automatically (and smartly) and "end"
 - Fugitive: Git wrapper for VIM
+- Haml: Syntax for Haml
 - Mustache.Vim: Syntax for Mustache.
 - NERDCommenter: Easy comment manipulation.
 - NERDTree: Cool project drawer
-- Snipmate: TextMate like snippets
-- Vim-Align: Allows to align text by equals sign etc.
-- Vim-Git: Git runtime for VIM
-- Vim-Haml: Haml syntax highlighting.
-- Vim-Makegreen: Red or green bar for failing/passing tests.
-- Vim-Markdown: Markdown syntax highlighting.
-- Vim-Peepopen: For Peepopen app (Not used since I'm not on Snow Leopard)
-- Vim-Rails: Self explanatory
-- Vim-Rooter: Change working directory to project root using <Leader>cd
-- Vim-Supertab: Tab completion for current context
-- Vim-Surround: Mappings to surround text in quotes, tags, etc.
-- Vim-Taglist: Adds a list of tags for the current filetype. Usage, :TlistToggle
-- Vim-Unimpaired: Bracket maps for navigation
-- Vim-Coffeescript: Coffeescript in Vim
-- Vim-Tabular: Helps with auto-formatting tabs around characters
+- Rag Tag: Tim Pope's mappins for (X)HTML manipulation
+- Rails: Self explanatory
+- Rooter: Change working directory to project root using <Leader>cd
+- Supertab: Tab completion for current context
+- Surround: Mappings to surround text in quotes, tags, etc.
+- Tabular: Helps with auto-formatting tabs around characters
+- Vim-Colors-Solarized: Solarized themes for gvim
