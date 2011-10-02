@@ -32,7 +32,7 @@ set showcmd                             " Display incomplete commands
 set showmode                            " Always show the current mode
 set backspace=indent,eol,start          " Smart backspacing
 
-set background=dark
+set background=light
 colorscheme solarized                   " Color for gVim
 
 "-------------------------------------------------------------------------------
@@ -54,14 +54,13 @@ set showmatch                           " Show matching bracket/brace
 set ignorecase                          " Ignore case while searching
 set incsearch                           " Highlight search matches as you type
 set hlsearch                            " Highlight search matches
-noremap <esc> :noh<return><esc>         " Clear search highlighting by hitting esc
 set visualbell                          " Don't beep at me!
 
 set wrap                                " Allow line-wrapping
 
 set cursorline                          " Highlight the current line
 hi CursorLine cterm=NONE ctermbg=black  
-autocmd VimEnter * NERDTree             " Autostart NERDTree
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * NERDTree             " Autostart NERDTree
+"autocmd VimEnter * wincmd p
 
 let mapleader=','                       " Map the leader key to ','
