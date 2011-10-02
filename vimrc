@@ -32,8 +32,12 @@ set showcmd                             " Display incomplete commands
 set showmode                            " Always show the current mode
 set backspace=indent,eol,start          " Smart backspacing
 
-set background=light
 colorscheme solarized                   " Color for gVim
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 
 "-------------------------------------------------------------------------------
 " Text Formatting 
