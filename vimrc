@@ -6,6 +6,7 @@
 
 set nocompatible                        " vi IMPROVED
 set encoding=utf-8
+set backupdir=~/.vim/backup
 
 "-------------------------------------------------------------------------------
 " Autoload all plugins with Pathogen
