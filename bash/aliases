@@ -1,3 +1,6 @@
+# Use updated version of Vim on Mac
+alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+
 # Quick Bash config shortcuts
 alias reload='source $HOME/dotfiles/bashrc'             # Reload bashrc
 alias ea='vi $HOME/dotfiles/bash/aliases && reload'      # Edit aliases, then reload

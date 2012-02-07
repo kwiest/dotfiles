@@ -20,7 +20,7 @@ call pathogen#runtime_append_all_bundles()
 " UI
 "-------------------------------------------------------------------------------
 
-syntax enable                           " Syntax highlighting
+syntax on                               " Syntax highlighting
 filetype plugin indent on               " Filetype detection, and indentation
 
 set number                              " Display line numbers
@@ -35,11 +35,23 @@ set backspace=indent,eol,start          " Smart backspacing
 
 set t_Co=256                            " Use 256 colors
 colorscheme solarized                   " Color for gVim
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
+set background=light
+
+"-------------------------------------------------------------------------------
+" File Navigation
+"-------------------------------------------------------------------------------
+let mapleader=','                       " Map the leader key to ','
+
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
+map <leader>gm :CommandTFLush<cr>\|:CommandT app/models<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gv :CommandTFLush<cr>\|:CommandT app/views<cr>
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
 
 "-------------------------------------------------------------------------------
 " Text Formatting 
@@ -66,7 +78,4 @@ set wrap                                " Allow line-wrapping
 
 set cursorline                          " Highlight the current line
 hi CursorLine cterm=NONE ctermbg=black  
-"autocmd VimEnter * NERDTree             " Autostart NERDTree
-"autocmd VimEnter * wincmd p
 
-let mapleader=','                       " Map the leader key to ','
