@@ -3,3 +3,10 @@
 	email = kyle.wiest@gmail.com
 [core]
 	editor = vi
+[color]
+    ui = auto
+[alias]
+    st = status
+    co = checkout
+    aa = add --all
+    b = branch
