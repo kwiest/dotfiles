@@ -35,7 +35,6 @@ set backspace=indent,eol,start          " Smart backspacing
 
 set t_Co=256                            " Use 256 colors
 colorscheme ir_black                    " Color for gVim
-"set background=light
 
 "-------------------------------------------------------------------------------
 " File Navigation
@@ -46,9 +45,9 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
-map <leader>gm :CommandTFLush<cr>\|:CommandT app/models<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gv :CommandTFLush<cr>\|:CommandT app/views<cr>
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
