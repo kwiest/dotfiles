@@ -22,13 +22,13 @@ Step 4 - Install vcprompt
  - chmod 755 ~/bin/vcprompt
 
 VIM Plugins
+- Command-T: Fast file navigation
 - Coffeescript: Syntax for Coffee-Script
 - Endwise: Automatically (and smartly) and "end"
-- Fugitive: Git wrapper for VIM
 - Haml: Syntax for Haml
 - Mustache.Vim: Syntax for Mustache.
 - NERDCommenter: Easy comment manipulation.
-- Rag Tag: Tim Pope's mappins for (X)HTML manipulation
+- Rag Tag: Tim Pope's mappings for (X)HTML manipulation
 - Rails: Self explanatory
 - Supertab: Tab completion for current context
 - Surround: Mappings to surround text in quotes, tags, etc.
