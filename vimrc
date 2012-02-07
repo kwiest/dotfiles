@@ -23,6 +23,8 @@ call pathogen#runtime_append_all_bundles()
 syntax on                               " Syntax highlighting
 filetype plugin indent on               " Filetype detection, and indentation
 
+noremap <CR> :nohlsearch<cr>            " Clear the search with a carriage return after searching
+
 set number                              " Display line numbers
 set numberwidth=5                       " In case the file is REALLY long
 set ruler                               " Display the cursor position
