@@ -22,3 +22,4 @@ alias cra='cd /var/www/rails_apps'
 
 # Rails
 alias rc='rails c'
+alias rcp='RAILS_ENV=production rails c'
