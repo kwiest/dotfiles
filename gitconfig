@@ -9,4 +9,7 @@
     st = status
     co = checkout
     aa = add --all
+    ci = commit
     b = branch
+    pom = push origin master
+    phm = push heroku master
