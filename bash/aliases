@@ -1,5 +1,7 @@
 # Use updated version of Vim on Mac
-alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+if [ "$UNAME" = Darwin ]; then
+    alias vi='/Applications/MacVim.app/Contents/MacOS/Vim'
+fi
 
 # Quick Bash config shortcuts
 alias reload='source $HOME/dotfiles/bashrc'             # Reload bashrc
