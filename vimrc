@@ -80,3 +80,24 @@ set wrap                                " Allow line-wrapping
 set cursorline                          " Highlight the current line
 hi CursorLine cterm=NONE ctermbg=black  
 
+"-------------------------------------------------------------------------------
+" Tests
+"-------------------------------------------------------------------------------
+"
+map <leader>t :call RunTests('%')<cr>
+
+function! RunTests(filename)
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    exec ":!script/test " . a:filename
+    "if match(a:filename, '\.feature$') != 1
+        "exec ":!bundle exec cucumber " . a:filename
+    "else
+        "if filereadable("script/text")
+            "exec ":!script/test " . a:filename
+        "elseif filereadable("Gemfile")
+            "exec ":!bundle exec rspec --color " . a:filename
+        "else
+            "exec ":!rspec --color " . a:filename
+        "end
+    "end
+endfunction
