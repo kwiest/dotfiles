@@ -1,8 +1,8 @@
 [user]
-	name = Kyle Wiest
-	email = kyle.wiest@gmail.com
+    name = Kyle Wiest
+    email = kyle.wiest@gmail.com
 [core]
-	editor = vi
+    editor = vi
 [color]
     ui = auto
 [alias]
