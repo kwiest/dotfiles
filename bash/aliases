@@ -5,7 +5,7 @@ fi
 
 # Quick Bash config shortcuts
 alias reload='source $HOME/dotfiles/bashrc'             # Reload bashrc
-alias ea='vi $HOME/dotfiles/bash/aliases && reload'      # Edit aliases, then reload
+alias ea='vi $HOME/dotfiles/bash/aliases && reload'     # Edit aliases, then reload
 alias ee='vi $HOME/dotfiles/bash/env && reload'         # Edit env config, then reload
 
 # Basics and movement

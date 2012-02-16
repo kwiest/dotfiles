@@ -1,7 +1,14 @@
+# Basics
+
+: ${HOME=~}
+: ${UNAME=$(uname)}
+
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+test -r /etc/bashrc &&
+    . /etc/bashrc
+
+test -r ~/localrc &&
+    . ~/localrc
 
 source ~/dotfiles/bash/env
 source ~/dotfiles/bash/config
@@ -15,7 +22,3 @@ export PATH=$PATH:$HOME/bin
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 [[ -s "/usr/local/lib/rvm" ]] && . "/usr/local/lib/rvm"
 
-# If localrc exists, source it
-if [ -f ~/localrc ]; then
-	. ~/localrc
-fi
