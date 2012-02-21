@@ -84,20 +84,49 @@ hi CursorLine cterm=NONE ctermbg=black
 " Tests
 "-------------------------------------------------------------------------------
 "
-map <leader>t :call RunTests('%')<cr>
+map <leader>t :call RunTestFile()<cr>   " Run tests for current file
+map <leader>a :call RunTests('')<cr>    " Run all tests
+
+function! SetTestFile()
+    let t:kw_test_file=@%
+endfunction
+
+function! RunTestFile(...)
+    if a:0
+        let command_suffix = a:1
+    else
+        let command_suffix = ""
+    endif
+
+    " Run the tests for the previously marked file
+    let in_test_file = match(expand("%"), '\.feature\|_spec.rb\$') != 1
+    if in_test_file
+        call SetTestFile()
+    elseif !exists("t:kw_test_file")
+        return
+    end
+    call RunTests(t:kw_test_file . command_suffix)
+endfunction
 
 function! RunTests(filename)
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    exec ":!script/test " . a:filename
-    "if match(a:filename, '\.feature$') != 1
-        "exec ":!bundle exec cucumber " . a:filename
-    "else
-        "if filereadable("script/text")
-            "exec ":!script/test " . a:filename
-        "elseif filereadable("Gemfile")
-            "exec ":!bundle exec rspec --color " . a:filename
-        "else
-            "exec ":!rspec --color " . a:filename
-        "end
-    "end
+    " Write the file and run tests for the given filename
+    :w
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+
+    if match(a:filename, '\.feature$') != -1
+        exec ":!bundle exec cucumber " a:filename
+    else
+        if filereadable("script/test")
+            exec ":!script/test " . a:filename
+        elseif filereadable("Gemfile")
+            exec ":!bundle exec rspec --color " . a:filename
+        else
+            exec ":!rspec --color " . a:filename
+        end
+    end
 endfunction
