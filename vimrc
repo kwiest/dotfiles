@@ -36,7 +36,7 @@ set showmode                            " Always show the current mode
 set backspace=indent,eol,start          " Smart backspacing
 
 set t_Co=256                            " Use 256 colors
-colorscheme ir_black                    " Color for gVim
+colorscheme Tomorrow-Night-Bright       " Tomorrow Night Bright Theme
 
 "-------------------------------------------------------------------------------
 " File Navigation
