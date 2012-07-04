@@ -19,11 +19,11 @@ For editing, I use VIM with the following plugins:
 
 ## Installation
 
-### Step 1 * Backup all of your files
+### Step 1 - Backup all of your files
 
-### Step 2 * Clone dotfiles
+### Step 2 - Clone dotfiles
 * `git clone https://github.com/kwiest/dotfiles.git ~/.dotfiles`
 * `cd .dotfiles`
 
-### Step 3 * Run rake install to create sym links
+### Step 3 - Run rake install to create sym links
 * `rake install`
