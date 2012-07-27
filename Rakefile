@@ -9,7 +9,7 @@ task :install do
   backup_all    = false
 
   symlinks.each do |linkable|
-    file = linkable.split('/').last.split('.symlink').last
+    file   = linkable.split('/').last.split('.symlink').last
     target = "#{ENV['HOME']}/.#{file}"
 
     if File.exists?(target) || File.symlink?(target)
@@ -24,12 +24,17 @@ task :install do
           when 's' then next
         end
 
+        # Remove the existing file/symlink if user selects to overwrite
         FileUtils.rm_rf(target) if overwrite || overwrite_all
+
+        # Create a backup if user selects to backup
         `mv "$HOME/.#{file}" "$HOME/.#{file}.backup"` if backup || backup_all
       end
 
-      `ln -s "$PWD/#{linkable}" "#{target}"`
     end
+
+    # Create the actual symlink
+    `ln -s "$PWD/#{linkable}" "#{target}"`
   end
 end
 
