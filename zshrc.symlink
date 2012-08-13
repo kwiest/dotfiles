@@ -7,6 +7,8 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="]%{reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+plugins=(git rbenv)
+
 # show git branch/tag, or name-rev if on detached head
 parse_git_branch() {
     (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2>/dev/null
