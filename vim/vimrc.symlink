@@ -41,6 +41,7 @@ colorscheme Tomorrow-Night-Bright       " Tomorrow Night Bright Theme
 "-------------------------------------------------------------------------------
 " File Navigation
 "-------------------------------------------------------------------------------
+
 let mapleader=','                       " Map the leader key to ','
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -64,6 +65,7 @@ set expandtab                           " Convert tabs to spaces
 set tabstop=4                           " Tabs should be 4 spaces
 set shiftwidth=4                        " Indent with 4 spaces too
 set nowrap                              " Do not allow line wrap
+set tw=80                               " Insert a newline after 80 characters
 
 "-------------------------------------------------------------------------------
 " Visual Cues 
