@@ -4,8 +4,11 @@ export ZSH=$HOME/.dotfiles
 # Shortcut for tab-completion
 export PROJECTS=$HOME/code
 
+# Load all zsh config files
+for config_file ($ZSH/zsh/*.zsh) source $config_file
+
 # Load every .zsh file in ~/.dotfiles
-for config_file ($ZSH/**/*.zsh) source $config_file
+#for config_file ($ZSH/**/*.zsh) source $config_file
 
 # If you have a .localrc for machine-only config, source it
 if [[ -a ~/.localrc ]]
@@ -18,4 +21,4 @@ autoload -U compinit
 compinit
 
 # Now you can load completion files
-for config_file ($ZSH/**/completion.zsh) source $config_file
+#for config_file ($ZSH/**/completion.zsh) source $config_file

@@ -1,6 +1,7 @@
 # Thanks https://github.com/holman/dotfiles !
 
 autoload colors && colors
+setopt prompt_subst
 
 # show current directory
 directory_name() {
@@ -20,9 +21,9 @@ git_dirty() {
     else
         if [[ $st == "nothing to commit (working directory clean)" ]]
         then
-            echo "on %{$fg_bold[green]%}$(git_branch)%{$reset_color%}"
+            echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
         else
-            echo "on %{$fg_bold[red]%}*$(git_branch)%{$reset_color%}"
+            echo "on %{$fg_bold[red]%}*$(git_prompt_info)%{$reset_color%}"
         fi
     fi
 }
@@ -40,7 +41,7 @@ git_needs_push() {
     fi
 }
 
-git_prompt_info() {
+function git_prompt_info() {
     ref=$(/usr/bin/env git symbolic-ref HEAD 2>/dev/null) || return
     echo "${ref#refs/heads/}"
 }
@@ -55,5 +56,4 @@ rb_prompt() {
     fi
 }
 
-#PROMPT="%{$fg[cyan]%}%~% %(?.%{$fg[green]%}.%{$fg[red]%})%B$%b "
-PROMPT="$(rb_prompt) in $(directory_name) $(git_dirty)$(git_needs_push)$ "
+export PROMPT=$'$(rb_prompt) in $(directory_name) $(git_dirty)$(git_needs_push)$ '
