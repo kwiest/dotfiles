@@ -64,7 +64,6 @@ set smartindent                         " Smart indents
 set expandtab                           " Convert tabs to spaces
 set tabstop=4                           " Tabs should be 4 spaces
 set shiftwidth=4                        " Indent with 4 spaces too
-set nowrap                              " Do not allow line wrap
 set tw=80                               " Insert a newline after 80 characters
 
 "-------------------------------------------------------------------------------
@@ -75,17 +74,15 @@ set showmatch                           " Show matching bracket/brace
 set ignorecase                          " Ignore case while searching
 set incsearch                           " Highlight search matches as you type
 set hlsearch                            " Highlight search matches
-set visualbell                          " Don't beep at me!
-
-set wrap                                " Allow line-wrapping
-
+set visualbell t_vb=                    " Turn off error beep/flash
+set novisualbell                        " Turn off visual bell
 set cursorline                          " Highlight the current line
-hi CursorLine cterm=NONE ctermbg=black  
 
 "-------------------------------------------------------------------------------
 " Tests
 "-------------------------------------------------------------------------------
 "
+
 map <leader>t :call RunTestFile()<cr>   " Run tests for current file
 map <leader>a :call RunTests('')<cr>    " Run all tests
 
