@@ -4,17 +4,24 @@ desc 'Move dotfiles into standard positions'
 task :install do
   symlinks = Dir.glob(File.join('**', '*.symlink'))
 
-  skip_all      = false
+  skip_all = false
   overwrite_all = false
-  backup_all    = false
+  backup_all = false
 
   symlinks.each do |linkable|
-    file   = linkable.split('/').last.split('.symlink').last
+    overwrite = false
+    backup = false
+
+    file = linkable.split('/').last.split('.symlink').last
     target = "#{ENV['HOME']}/.#{file}"
 
     if File.exists?(target) || File.symlink?(target)
       unless skip_all || overwrite_all || backup_all
-        puts "File already exists: #{target}, what do you want to do? [s]kip, [S]kip all, [o]overwrite, [O]verwrite all, [b]ackup, [B]ackup all"
+        puts <<-EOS
+File already exists: #{target}, what do you want to do?
+[s]kip, [S]kip all, [o]overwrite, [O]verwrite all, [b]ackup, [B]ackup all
+        EOS
+
         case STDIN.gets.chomp
           when 'o' then overwrite = true
           when 'b' then backup = true
@@ -34,9 +41,10 @@ task :install do
     end
 
     # Create the actual symlink
-    `ln -s "$PWD/#{linkable}" "#{target}"`
+    `ln -s "$PWD/#{linkable}" "#{target}"` if !skip_all
   end
 end
+
 
 desc 'Remove all linked dotfiles and restore any backups'
 task :uninstall do
