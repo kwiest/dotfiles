@@ -62,8 +62,8 @@ map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 set autoindent                          " Automatic indents
 set smartindent                         " Smart indents
 set expandtab                           " Convert tabs to spaces
-set tabstop=4                           " Tabs should be 4 spaces
-set shiftwidth=4                        " Indent with 4 spaces too
+set tabstop=2                           " Tabs should be 4 spaces
+set shiftwidth=2                        " Indent with 4 spaces too
 set tw=80                               " Insert a newline after 80 characters
 
 "-------------------------------------------------------------------------------
