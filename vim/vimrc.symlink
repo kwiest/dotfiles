@@ -13,8 +13,7 @@ set backupdir=~/.vim/backup
 " Package manager by Tim Pope
 "-------------------------------------------------------------------------------
 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 "-------------------------------------------------------------------------------
 " UI
