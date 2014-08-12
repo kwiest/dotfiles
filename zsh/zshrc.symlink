@@ -4,6 +4,8 @@ export ZSH=$HOME/.dotfiles
 # Shortcut for tab-completion
 export PROJECTS=$HOME/code
 
+alias tmux="TERM=screen-256color-bce tmux"
+
 # Load all zsh config files
 for config_file ($ZSH/zsh/*.zsh) source $config_file
 
