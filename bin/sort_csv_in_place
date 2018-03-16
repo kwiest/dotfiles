@@ -1,0 +1,7 @@
+#!/bin/sh
+
+/usr/bin/env head -n1 $1 > temp-headers.csv
+/usr/bin/env head -n1 $1 && tail -n+2 $1 | sort > temp.csv
+cat temp-headers.csv > $1
+cat temp.csv >> $1
+rm temp.csv && rm temp-headers.csv
