@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "Reading all records that appear in " $1
+echo "Keeping all rows in " $2
+
+/usr/bin/env awk -F, 'FNR==NR {a[$1]=$0; next}; $1 in a {print a[$1]}' $1 $2
