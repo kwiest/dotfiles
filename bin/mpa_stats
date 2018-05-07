@@ -1,0 +1,212 @@
+#!/usr/bin/env ruby
+
+require 'csv'
+
+GRADES_AND_POSITIONS = Hash.new { |h,k| h[k] = Hash.new(0) }
+
+class CamperFeeCounts
+  FEES = ["Overnight camper", "Day camper"].freeze
+  ATTRITION_RATE = 0.88.freeze
+
+  attr_reader :confirmed_camper_fee_counts,
+    :canceled_camper_fee_counts,
+    :total_campers,
+    :total_balance_due,
+    :total_canceled_campers
+
+  def initialize(confirmed_campers_csv, canceled_campers_csv = nil)
+    @confirmed_camper_fee_counts = Hash.new { |h,k| h[k] = { count: 0, balance_due_count: 0 } }
+    @canceled_camper_fee_counts = Hash.new(0)
+    @total_campers = 0
+    @total_balance_due = 0
+    @total_canceled_campers = 0
+
+    count_confirmed_camper_fees(confirmed_campers_csv)
+    count_canceled_campers(canceled_campers_csv) if canceled_campers_csv
+  end
+
+  def print_counts
+    puts "Total camper counts:"
+    print_camper_counts
+    print_total_camper_counts
+    puts ""
+  end
+
+
+  private
+
+  def count_confirmed_camper_fees(csv)
+    csv.each do |row|
+      fee = row["Fee"]
+      total_due = row["Total due"].to_i
+
+      @confirmed_camper_fee_counts[fee][:count] = confirmed_camper_fee_counts[fee][:count] + 1
+
+      if total_due > 0
+        @confirmed_camper_fee_counts[fee][:balance_due_count] = confirmed_camper_fee_counts[fee][:balance_due_count] + 1
+      end
+    end
+
+    csv.rewind
+  end
+
+  def count_canceled_campers(csv)
+    FEES.each do |fee|
+      csv.each do |row|
+        notes = row["Notes"].downcase
+        matcher = "was #{fee.split(" ")[0].downcase}"
+
+        if notes.include?(matcher)
+          @canceled_camper_fee_counts[fee] = canceled_camper_fee_counts[fee] + 1
+        end
+      end
+
+      csv.rewind
+    end
+
+    csv.rewind
+  end
+
+  def percentage_of(num, div)
+    ((num.to_f / div.to_f) * 100.0).round(1)
+  end
+
+  def print_camper_counts
+    FEES.each do |fee|
+      puts "- #{fee}s:"
+      
+      confirmed_count = confirmed_camper_fee_counts[fee][:count]
+      balance_due_count = confirmed_camper_fee_counts[fee][:balance_due_count]
+      balance_due_percent = percentage_of(balance_due_count, confirmed_count)
+
+      @total_campers += confirmed_count
+      @total_balance_due += balance_due_count
+
+      canceled_count = canceled_camper_fee_counts[fee]
+      canceled_percent = percentage_of(canceled_count, (confirmed_count + canceled_count))
+      @total_canceled_campers += canceled_count
+
+      projected_count = ((confirmed_count + canceled_count) * ATTRITION_RATE).to_i
+
+      puts "  - Confirmed: #{confirmed_count}"
+      puts "  - Balance-due remaining: #{balance_due_count} (#{balance_due_percent}%)"
+      puts "  - Canceled: #{canceled_count} (#{canceled_percent}%)"
+      puts "  - Projected (assuming 12% attrition): #{projected_count}"
+    end
+  end
+
+  def print_total_camper_counts
+    balance_due_percentage = percentage_of(total_balance_due, total_campers)
+    canceled_percentage = percentage_of(total_canceled_campers, (total_campers + total_canceled_campers))
+    projected_count = ((total_campers + total_canceled_campers) * ATTRITION_RATE).to_i
+
+    puts "- Total:"
+    puts "  - Confirmed: #{total_campers}"
+    puts "  - Balance-due: #{total_balance_due} (#{balance_due_percentage}%)"
+    puts "  - Canceled: #{total_canceled_campers} (#{canceled_percentage}%)"
+    puts "  - Projected (assuming 12% attrition): #{projected_count}"
+  end
+end
+
+class GradesAndPositionsTable
+  GRADES = %w(8 9 10 11 12).freeze
+  POSITIONS = %w(QB RB WR TE).freeze
+  HEADER = "|       |  QB |  RB |  WR |  TE | Total |".freeze
+  SEPARATOR = "+-------+-----+-----+-----+-----+-------+".freeze
+
+  attr_reader :camper_csv,
+    :grades_and_positions,
+    :position_sums,
+    :footer
+
+  def initialize(camper_csv)
+    @grades_and_positions = Hash.new { |h,k| h[k] = Hash.new(0) }
+    @position_sums = Hash.new(0)
+    @footer = "| Total |"
+
+    count_grades_and_positions(camper_csv)
+  end
+
+  def print_table
+    print_header
+    print_grade_rows
+    print_footer
+  end
+
+
+  private
+
+  def count_grades_and_positions(csv)
+    csv.each do |row|
+      grade = row["Entering grade in fall of 2018"]
+      position = row["Position"]
+
+      @grades_and_positions[grade][position] = grades_and_positions[grade][position] + 1
+    end
+  end
+
+  def pad_cell(item, desired_length)
+    display = item.to_s
+    while display.length < desired_length do
+      display = " " + display
+    end
+
+    " #{display} |"
+  end
+
+  def sum_hash(hash)
+    hash.inject(0) { |sum, position_and_count| sum + position_and_count[1] }
+  end
+
+  def print_header
+    puts "Grades and Positions:"
+    puts SEPARATOR
+    puts HEADER
+    puts SEPARATOR
+  end
+
+  def print_grade_rows
+    GRADES.each do |grade|
+      grade_row = "|"
+      grade_row << pad_cell(grade, 5)
+
+      POSITIONS.each do |position|
+        count = grades_and_positions[grade][position]
+        position_sums[position] = position_sums[position] + count
+
+        grade_row << pad_cell(count, 3)
+      end
+
+      grade_sum = sum_hash(grades_and_positions[grade])
+      grade_row << pad_cell(grade_sum, 5)
+
+      puts grade_row
+      puts SEPARATOR
+    end
+  end
+
+  def print_footer
+    POSITIONS.each do |position|
+      position_count = position_sums[position]
+      footer << pad_cell(position_count, 3)
+    end
+
+    total = sum_hash(position_sums)
+    footer << pad_cell(total, 5)
+
+    puts footer
+    puts SEPARATOR
+  end
+end
+
+
+confirmed_campers_csv = CSV.new(File.read(ARGV[0]), headers: :first_row)
+
+if ARGV.size > 1
+  canceled_campers_csv = CSV.new(File.read(ARGV[1]), headers: :first_row)
+else
+  canceled_campers_csv = nil
+end
+
+CamperFeeCounts.new(confirmed_campers_csv, canceled_campers_csv).print_counts
+GradesAndPositionsTable.new(confirmed_campers_csv).print_table
