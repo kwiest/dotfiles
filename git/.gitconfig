@@ -1,0 +1,26 @@
+# This is Git's per-user configuration file.
+[user]
+    name = Kyle Wiest
+    email = kyle.wiest@contractor.cengage.com
+[core]
+    excludesfile = /Users/kyle/.gitignore
+    editor = vi
+	hooksPath = ~/git_hooks
+[color]
+    ui = auto
+[alias]
+    st = status
+    co = checkout
+    aa = add --all
+    ci = commit
+    b = branch
+    l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --max-count=20
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+[commit]
+    template = /Users/kyle/.stCommitMsg
+[pull]
+    rebase = true
