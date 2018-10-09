@@ -12,5 +12,3 @@
     ci = commit
     b = branch
     l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --max-count=15
-    pom = push origin master
-    phm = push heroku master
