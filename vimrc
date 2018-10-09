@@ -20,6 +20,13 @@ Plugin 'garbas/vim-snipmate'
 " Ruby/Rails
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-endwise'
+
+" Slim templating
+Plugin 'slim-template/vim-slim.git'
+
+" SCSS
+Plugin 'cakebaker/scss-syntax.vim'
 
 " Comment/uncomment lines
 Plugin 'tomtom/tcomment_vim'
