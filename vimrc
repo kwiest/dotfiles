@@ -22,6 +22,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-endwise'
 
+" Ale language server for Rubocop
+Plugin 'w0rp/ale'
+
 " Slim templating
 Plugin 'slim-template/vim-slim.git'
 
