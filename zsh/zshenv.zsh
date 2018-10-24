@@ -9,3 +9,5 @@ export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+alias ctags="`brew --prefix`/bin/ctags"
