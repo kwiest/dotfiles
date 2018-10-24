@@ -47,7 +47,7 @@ Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 
 " Ctrl-P fuzzy search
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlp/ctrlp.vim'
 
 " Tests
 Plugin 'janko-m/vim-test'
