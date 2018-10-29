@@ -12,3 +12,5 @@
     ci = commit
     b = branch
     l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --max-count=15
+[rerere]
+	enabled = true
