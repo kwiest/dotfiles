@@ -31,3 +31,57 @@
 [submodule "dotfiles/vim/bundle/vim-cucumber"]
 	path = dotfiles/vim/bundle/vim-cucumber
 	url = https://github.com/tpope/vim-cucumber.git
+[submodule "vim/pack/bundle/start/vim-snipmate"]
+	path = vim/pack/bundle/start/vim-snipmate
+	url = git@github.com:garbas/vim-snipmate.git
+[submodule "vim/pack/bundle/start/vim-addon-mw-utils"]
+	path = vim/pack/bundle/start/vim-addon-mw-utils
+	url = git@github.com:MarcWeber/vim-addon-mw-utils
+[submodule "vim/pack/bundle/start/tlib_vim"]
+	path = vim/pack/bundle/start/tlib_vim
+	url = git@github.com:tomtom/tlib_vim
+[submodule "vim/pack/bundle/start/vim-snippets"]
+	path = vim/pack/bundle/start/vim-snippets
+	url = git@github.com:honza/vim-snippets
+[submodule "vim/pack/bundle/start/vim-ruby"]
+	path = vim/pack/bundle/start/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby
+[submodule "vim/pack/bundle/start/vim-rails"]
+	path = vim/pack/bundle/start/vim-rails
+	url = git@github.com:tpope/vim-rails
+[submodule "vim/pack/bundle/start/vim-endwise"]
+	path = vim/pack/bundle/start/vim-endwise
+	url = git@github.com:tpope/vim-endwise
+[submodule "vim/pack/bundle/start/elm-vim"]
+	path = vim/pack/bundle/start/elm-vim
+	url = git@github.com:elmcast/elm-vim
+[submodule "vim/pack/bundle/start/ale"]
+	path = vim/pack/bundle/start/ale
+	url = git@github.com:w0rp/ale
+[submodule "vim/pack/bundle/start/vim-slim"]
+	path = vim/pack/bundle/start/vim-slim
+	url = git@github.com:slim-template/vim-slim
+[submodule "vim/pack/bundle/start/scss-syntax.vim"]
+	path = vim/pack/bundle/start/scss-syntax.vim
+	url = git@github.com:cakebaker/scss-syntax.vim
+[submodule "vim/pack/bundle/start/tcomment_vim"]
+	path = vim/pack/bundle/start/tcomment_vim
+	url = git@github.com:tomtom/tcomment_vim
+[submodule "vim/pack/bundle/start/vim-surround"]
+	path = vim/pack/bundle/start/vim-surround
+	url = git@github.com:tpope/vim-surround
+[submodule "vim/pack/bundle/start/auto-pairs"]
+	path = vim/pack/bundle/start/auto-pairs
+	url = git@github.com:jiangmiao/auto-pairs
+[submodule "vim/pack/bundle/start/supertab"]
+	path = vim/pack/bundle/start/supertab
+	url = git@github.com:ervandew/supertab
+[submodule "vim/pack/bundle/start/nerdtree"]
+	path = vim/pack/bundle/start/nerdtree
+	url = git@github.com:scrooloose/nerdtree
+[submodule "vim/pack/bundle/start/ctrlp.vim"]
+	path = vim/pack/bundle/start/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim
+[submodule "vim/pack/bundle/start/vim-test"]
+	path = vim/pack/bundle/start/vim-test
+	url = git@github.com:janko-m/vim-test

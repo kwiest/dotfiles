@@ -1,58 +1,6 @@
 set nocompatible
 set encoding=utf-8
 
-" Set for Vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Vundle dependency management
-Plugin 'VundleVim/Vundle.vim'
-
-" Snipmate dependencies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
-
-" Snipmate snippets
-Plugin 'garbas/vim-snipmate'
-
-" Ruby/Rails
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails.git'
-Plugin 'tpope/vim-endwise'
-
-" Ale language server for Rubocop
-Plugin 'w0rp/ale'
-
-" Slim templating
-Plugin 'slim-template/vim-slim.git'
-
-" SCSS
-Plugin 'cakebaker/scss-syntax.vim'
-
-" Comment/uncomment lines
-Plugin 'tomtom/tcomment_vim'
-
-" Surround text
-Plugin 'tpope/vim-surround'
-
-" Auto pair for {, [, (
-Plugin 'jiangmiao/auto-pairs'
-
-" Tab completions
-Plugin 'ervandew/supertab'
-
-" NerdTree navigation
-Plugin 'scrooloose/nerdtree'
-
-" Ctrl-P fuzzy search
-Plugin 'ctrlp/ctrlp.vim'
-
-" Tests
-Plugin 'janko-m/vim-test'
-
-call vundle#end()
 filetype plugin indent on
 
 " Set exeburent ctags dir
