@@ -75,6 +75,8 @@ set tw=80
 set colorcolumn=+1
 set nowrap
 
+set inccommand=nosplit
+
 " Searching
 set hlsearch
 set incsearch
