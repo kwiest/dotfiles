@@ -1,16 +1,23 @@
 [user]
-    name = Kyle Wiest
-    email = kyle.wiest@gmail.com
+	name = Kyle Wiest
+	email = kyle.wiest@gmail.com
 [core]
     editor = vi
+    autocrlf = input
 [color]
     ui = auto
 [alias]
-    st = status
-    co = checkout
     aa = add --all
-    ci = commit
     b = branch
+    ci = commit
+    co = checkout
+    fp = fetch -p
+    st = status
     l = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short --max-count=15
 [rerere]
 	enabled = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

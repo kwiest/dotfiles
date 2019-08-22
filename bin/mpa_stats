@@ -2,20 +2,25 @@
 
 require 'csv'
 
-GRADES_AND_POSITIONS = Hash.new { |h,k| h[k] = Hash.new(0) }
+GRADES_AND_POSITIONS = Hash.new { |h, k| h[k] = Hash.new(0) }
 
 class CamperFeeCounts
-  FEES = ["Overnight camper", "Day camper"].freeze
-  ATTRITION_RATE = 0.88.freeze
+  FEES = [
+    'Overnight camper',
+    'Day camper'
+  ].freeze
+  ATTRITION_RATE = 0.88
 
   attr_reader :confirmed_camper_fee_counts,
-    :canceled_camper_fee_counts,
-    :total_campers,
-    :total_balance_due,
-    :total_canceled_campers
+              :canceled_camper_fee_counts,
+              :total_campers,
+              :total_balance_due,
+              :total_canceled_campers
 
   def initialize(confirmed_campers_csv, canceled_campers_csv = nil)
-    @confirmed_camper_fee_counts = Hash.new { |h,k| h[k] = { count: 0, balance_due_count: 0 } }
+    @confirmed_camper_fee_counts = Hash.new do |h, k|
+      h[k] = { count: 0, balance_due_count: 0 }
+    end
     @canceled_camper_fee_counts = Hash.new(0)
     @total_campers = 0
     @total_balance_due = 0
@@ -26,10 +31,10 @@ class CamperFeeCounts
   end
 
   def print_counts
-    puts "Total camper counts:"
+    puts 'Total camper counts:'
     print_camper_counts
     print_total_camper_counts
-    puts ""
+    puts ''
   end
 
 
@@ -37,8 +42,8 @@ class CamperFeeCounts
 
   def count_confirmed_camper_fees(csv)
     csv.each do |row|
-      fee = row["Fee"]
-      total_due = row["Total due"].to_i
+      fee = row['Fee'].include?('Overnight') ? 'Overnight camper' : 'Day camper'
+      total_due = row['Total due'].to_i
 
       @confirmed_camper_fee_counts[fee][:count] = confirmed_camper_fee_counts[fee][:count] + 1
 
@@ -74,7 +79,7 @@ class CamperFeeCounts
   def print_camper_counts
     FEES.each do |fee|
       puts "- #{fee}s:"
-      
+
       confirmed_count = confirmed_camper_fee_counts[fee][:count]
       balance_due_count = confirmed_camper_fee_counts[fee][:balance_due_count]
       balance_due_percent = percentage_of(balance_due_count, confirmed_count)
@@ -138,7 +143,7 @@ class GradesAndPositionsTable
 
   def count_grades_and_positions(csv)
     csv.each do |row|
-      grade = row["Entering grade in fall of 2018"]
+      grade = row["Entering grade in fall of 2019"]
       position = row["Position"]
 
       @grades_and_positions[grade][position] = grades_and_positions[grade][position] + 1

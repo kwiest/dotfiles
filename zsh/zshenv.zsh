@@ -1,3 +1,9 @@
+# Add ~/bin to PATH
+export PATH="$HOME/bin:$PATH"
+
+# Add Cargo (Rust) to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Add Homebrew to PATH
 export PATH="/usr/local/bin:$PATH"
 
@@ -7,6 +13,10 @@ export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 # Add Postgres to PATH
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
+# Add Haskell bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# Add rbenv to PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 

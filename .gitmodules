@@ -85,3 +85,9 @@
 [submodule "vim/pack/bundle/start/vim-test"]
 	path = vim/pack/bundle/start/vim-test
 	url = git@github.com:janko-m/vim-test
+[submodule "vim/pack/bundle/start/vim-javascript"]
+	path = vim/pack/bundle/start/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "vim/pack/bundle/start/vim-jsx"]
+	path = vim/pack/bundle/start/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
