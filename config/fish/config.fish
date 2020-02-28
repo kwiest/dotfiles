@@ -7,6 +7,9 @@ set -x PATH $HOME/.cargo/bin $PATH
 # Postgres
 set -x PATH /Applications/Postgres.app/Contents/Versions/Latest/bin $PATH
 
+# Go
+set -x PATH $HOME/go/bin $PATH
+
 # Haskell
 set -x PATH $HOME/.local/bin $PATH
 
