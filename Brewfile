@@ -11,6 +11,7 @@ brew "ripgrep" # Better grep, `rg`
 brew "rust"
 brew "starship" # Shell prompt (for astronauts)
 brew "stow"
+brew "opentofu"
 
 ########
 # MacOS Native Apps
