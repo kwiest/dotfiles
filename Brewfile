@@ -6,6 +6,7 @@ tap "anomalyco/tap"
 
 brew "anomalyco/tap/opencode"
 brew "awscli"
+brew "claude-clode"
 brew "gemini-cli"
 brew "go@1.25"
 brew "neovim"
