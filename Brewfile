@@ -5,7 +5,6 @@ tap "anomalyco/tap"
 ########
 
 brew "awscli"
-brew "claude-clode"
 brew "gemini-cli"
 brew "gh"
 brew "go@1.25"
@@ -26,6 +25,7 @@ cask "1password"
 cask "alfred"
 
 cask "claude"
+cask "claude-code"
 
 cask "firefox"
 
