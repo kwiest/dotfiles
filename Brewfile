@@ -4,7 +4,6 @@ tap "anomalyco/tap"
 # CLI utils
 ########
 
-brew "anomalyco/tap/opencode"
 brew "awscli"
 brew "claude-clode"
 brew "gemini-cli"
@@ -34,8 +33,6 @@ cask "font-hack-nerd-font"
 
 # Terminal emulator
 cask "ghostty"
-
-cask "opencode-desktop"
 
 # API Dev
 cask "postman"
