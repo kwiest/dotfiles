@@ -3,4 +3,4 @@
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
 # Add local binaries to PATH
-export PATH=$HOME/bin:$HOME/go/bin:$PATH
+export PATH=$HOME/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
