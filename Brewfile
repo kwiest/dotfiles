@@ -1,4 +1,5 @@
 tap "anomalyco/tap"
+tap "omnigent-ai/tap" # Databricks omnigent
 
 ########
 # CLI utils
@@ -14,6 +15,7 @@ brew "ripgrep" # Better grep, `rg`
 brew "rust"
 brew "starship" # Shell prompt (for astronauts)
 brew "stow"
+brew "omnigent" # AI meta-harness
 brew "openjdk@21"
 brew "opentofu"
 
