@@ -1,0 +1,7 @@
+# Ghostty config (https://ghostty.org/docs/config)
+
+keybind = super+shift+enter=toggle_split_zoom
+
+# Shift+Enter sends Esc+Enter, which Claude Code (and zsh) treat as a
+# newline. Works inside tmux, where plain Shift+Enter arrives as Enter.
+keybind = shift+enter=text:\x1b\r
