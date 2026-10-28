@@ -6,11 +6,14 @@ tap "omnigent-ai/tap" # Databricks omnigent
 ########
 
 brew "awscli"
+brew "fd" # Better find, used by `dev` project picker
+brew "fzf" # Fuzzy finder
 brew "gemini-cli"
 brew "gh"
 brew "go@1.25"
 brew "mise" # Per-project env + tool versions (personal mise.local.toml only)
 brew "neovim"
+brew "tmux"
 brew "tree-sitter-cli" # Required by nvim-treesitter (main branch)
 brew "node@24"
 brew "ripgrep" # Better grep, `rg`

@@ -1,0 +1,54 @@
+#!/usr/bin/env zsh
+#
+# Open (or re-attach to) a tmux session for a project:
+#
+#   ┌──────────────────┬──────────┐
+#   │                  │ claude   │
+#   │ nvim             ├──────────┤
+#   │                  │ shell    │
+#   └──────────────────┴──────────┘
+#
+# Usage: dev [project_dir]   (no argument opens an fzf picker)
+
+set -euo pipefail
+
+source "$HOME/.config/zsh/profiles.zsh"
+
+project_search_root="$HOME/src/github.com"
+
+project_dir="${1:-}"
+if [[ -z "$project_dir" ]]; then
+  project_dir="$(fd --type d --exact-depth 2 . "$project_search_root" | fzf --prompt='project> ')" || {
+    echo "dev: no project selected" >&2
+    exit 1
+  }
+fi
+
+if [[ ! -d "$project_dir" ]]; then
+  echo "dev: not a directory: $project_dir" >&2
+  exit 1
+fi
+project_dir="${project_dir:A}" # absolute path, symlinks resolved
+
+# tmux session names can't contain "." or ":"
+session_name="${${project_dir:t}//[.:]/_}"
+profile="$(profile_for_path "$project_dir")"
+
+if ! tmux has-session -t "=$session_name" 2>/dev/null; then
+  nvim_pane="$(tmux new-session -d -P -F '#{pane_id}' -s "$session_name" -c "$project_dir")"
+  tmux set-option -t "$session_name" @profile "$profile"
+
+  agent_pane="$(tmux split-window -h -P -F '#{pane_id}' -t "$nvim_pane" -c "$project_dir" -l 40%)"
+  tmux split-window -v -t "$agent_pane" -c "$project_dir" -l 30%
+
+  # Run commands through the pane's shell so mise and the claude() wrapper apply
+  tmux send-keys -t "$nvim_pane" 'nvim' Enter
+  tmux send-keys -t "$agent_pane" 'claude' Enter
+  tmux select-pane -t "$nvim_pane"
+fi
+
+if [[ -n "${TMUX:-}" ]]; then
+  tmux switch-client -t "=$session_name"
+else
+  tmux attach-session -t "=$session_name"
+fi
