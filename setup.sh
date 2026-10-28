@@ -7,4 +7,4 @@ echo ">>>> Installing apps from Brewfile..."
 brew bundle
 
 echo ">>>> Linking config via stow..."
-stow -R -v -t ~ -d ~/dotfiles/home .
+stow -R -v --no-folding -t ~ -d ~/dotfiles/home .
