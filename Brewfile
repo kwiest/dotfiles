@@ -9,6 +9,7 @@ brew "awscli"
 brew "gemini-cli"
 brew "gh"
 brew "go@1.25"
+brew "mise" # Per-project env + tool versions (personal mise.local.toml only)
 brew "neovim"
 brew "node@24"
 brew "ripgrep" # Better grep, `rg`
