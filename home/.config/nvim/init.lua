@@ -9,7 +9,8 @@ vim.g.maplocalleader = " "
 ----------------------------------------------------------------------
 local opt = vim.opt
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
+opt.ruler = true
 opt.signcolumn = "yes"
 opt.cursorline = true
 opt.scrolloff = 8
@@ -36,9 +37,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
       if not event.data.active then
         vim.cmd.packadd("nvim-treesitter")
       end
-      vim.schedule(function()
-        vim.cmd("TSUpdate")
-      end)
+      vim.schedule(function() vim.cmd("TSUpdate") end)
     end
   end,
 })
@@ -58,11 +57,24 @@ vim.pack.add({
 -- Picker + file explorer
 ----------------------------------------------------------------------
 require("snacks").setup({
-  picker = { enabled = true },
+  picker = {
+    enabled = true,
+    sources = {
+      explorer = { hidden = true },
+      files = { hidden = true },
+    },
+  },
   explorer = { enabled = true },
 })
 
 local map = vim.keymap.set
+
+-- Enter clears search highlighting when it's showing; otherwise Enter behaves
+-- normally (so quickfix/help jumps still work)
+local function clear_search_or_enter()
+  return vim.v.hlsearch == 1 and "<Cmd>nohlsearch<CR>" or "<CR>"
+end
+map("n", "<CR>", clear_search_or_enter, { expr = true, desc = "Clear search highlight" })
 map("n", "<leader>e", function() Snacks.explorer() end, { desc = "Toggle file explorer" })
 map("n", "<leader>f", function() Snacks.picker.files() end, { desc = "Find files" })
 map("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Grep project" })
@@ -85,6 +97,7 @@ map("n", "<C-l>", smart_splits.move_cursor_right, { desc = "Move right" })
 ----------------------------------------------------------------------
 -- Treesitter (main branch: install parsers, enable highlighting per buffer)
 ----------------------------------------------------------------------
+-- stylua: ignore
 local treesitter_languages = {
   "bash", "go", "javascript", "json", "lua", "markdown", "markdown_inline",
   "python", "ruby", "rust", "terraform", "toml", "tsx", "typescript", "yaml",
