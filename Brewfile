@@ -11,6 +11,7 @@ brew "gh"
 brew "go@1.25"
 brew "mise" # Per-project env + tool versions (personal mise.local.toml only)
 brew "neovim"
+brew "tree-sitter-cli" # Required by nvim-treesitter (main branch)
 brew "node@24"
 brew "ripgrep" # Better grep, `rg`
 brew "rust"
@@ -19,6 +20,15 @@ brew "stow"
 brew "omnigent" # AI meta-harness
 brew "openjdk@21"
 brew "opentofu"
+
+########
+# Language servers / formatters (for Neovim)
+########
+
+brew "lua-language-server"
+brew "rust-analyzer"
+brew "stylua"
+brew "typescript-language-server"
 
 ########
 # MacOS Native Apps
